@@ -47,51 +47,6 @@
 
                   <!-- Right-side navigation -->
                   <ul class="nav-right pull-right list-inline">
-                      <li class="dropdown users">
-                          <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                              <i class="fa fa-th"></i>
-                          </a>
-                          <div class="dropdown-menu pull-right panel panel-default" role="menu">
-                              <ul class="app-sortcut">
-                                  <li>
-                                      <a href="#" class="connection-item">
-                                          <i class="fa fa-umbrella"></i>
-                                          <span class="block">메뉴 1</span>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="ui-widgets.html" class="connection-item">
-                                          <i class="fa fa-object-ungroup"></i>
-                                          <span class="block">메뉴 2</span>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="calendar.html" class="connection-item">
-                                          <i class="fa fa-calendar-check-o"></i>
-                                          <span class="block">메뉴 3</span>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="maps-google.html" class="connection-item">
-                                          <i class="fa fa-map-o"></i>
-                                          <span class="block">메뉴 4</span>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="chat.html" class="connection-item">
-                                          <i class="fa fa-comments-o"></i>
-                                          <span class="block">메뉴 5</span>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="#" class="connection-item">
-                                          <i class="fa fa-book"></i>
-                                          <span class="block">메뉴 6</span>
-                                      </a>
-                                  </li>
-                              </ul>
-                          </div>
-                      </li>
                       <li class="dropdown nav-profile">
                           <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                               <img src="static/images/profile-photo.jpg" alt="" class="0 size-30x30"> </a>
@@ -101,11 +56,6 @@
                                       <div class="user-name">박현석</div>
                                       <div class="user-position online">과장</div>
                                   </div>
-                              </li>
-                              <li>
-                                  <a href="profile.html" role="button" tabindex="0">
-                                      <span class="label label-success pull-right">80%</span>
-                                      <i class="fa fa-user"></i>Profile</a>
                               </li>
                               <li>
                                   <a role="button" tabindex="0">
@@ -118,11 +68,11 @@
                               </li>
                               <li class="divider"></li>
                               <li>
-                                  <a href="locked.html" role="button" tabindex="0">
+                                  <a href="{% url 'locked:locked' %}" role="button" tabindex="0">
                                       <i class="fa fa-lock"></i>Lock</a>
                               </li>
                               <li>
-                                  <a href="login.html" role="button" tabindex="0">
+                                  <a href="{% url 'login:login' %}" role="button" tabindex="0">
                                       <i class="fa fa-sign-out"></i>Logout</a>
                               </li>
                           </ul>
@@ -161,21 +111,21 @@
                                             </a>
                                             <ul>
                                                 <li>
-                                                    <a href="db-result.html">
+                                                    <a href="{% url 'db-result:db-result' %}">
                                                         <i class="fa fa-angle-right"></i>DB 현황
                                                         <span class="label label-success">new</span>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="db-list.html">
+                                                    <a href="{% url 'db-list:db-list' %}">
                                                         <i class="fa fa-angle-right"></i>DB 리스트</a>
                                                 </li>
                                                 <li>
-                                                    <a href="db-guest.html">
+                                                    <a href="{% url 'db-guest:db-guest' %}">
                                                         <i class="fa fa-angle-right"></i>개인별 추출</a>
                                                 </li>
 												                        <li>
-                                                    <a href="db-edit.html">
+                                                    <a href="{% url 'db-edit:db-edit' %}">
                                                         <i class="fa fa-angle-right"></i>설문지 편집</a>
                                                 </li>
                                             </ul>
@@ -187,25 +137,25 @@
                                             </a>
                                             <ul>
                                                 <li>
-                                                    <a href="cy-test.html">
+                                                    <a href="{% url 'cy-test:cy-test' %}">
                                                         <i class="fa fa-angle-right"></i>부적격 검수</a>
                                                 </li>
                                                 <li>
-                                                    <a href="cy-result.html">
+                                                    <a href="{% url 'cy-result:cy-result' %}">
                                                         <i class="fa fa-angle-right"></i>청약자 현황</a>
                                                 </li>
                                                 <li>
-                                                    <a href="cy-list.html">
+                                                    <a href="{% url 'cy-list:cy-list' %}">
                                                         <i class="fa fa-angle-right"></i>청약자 리스트</a>
                                                 </li>
                                                 <li>
-                                                    <a href="cy-guest.html">
+                                                    <a href="{% url 'cy-guest:cy-guest' %}">
                                                         <i class="fa fa-angle-right"></i>개인별 추출
                                                         <span class="badge br-10 badge-success">13</span>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="cy-outbound.html">
+                                                    <a href="{% url 'cy-outbound:cy-outbound' %}">
                                                         <i class="fa fa-angle-right"></i>당첨자 아웃바운드</a>
                                                 </li>
                                             </ul>
@@ -217,15 +167,15 @@
                                             </a>
                   													<ul>
                   															<li>
-                  																	<a href="ky-input.html">
+                  																	<a href="{% url 'ky-input:ky-input' %}">
                   																			<i class="fa fa-angle-right"></i>계약자 입력</a>
                   															</li>
                   															<li>
-                  																	<a href="ky-result.html">
+                  																	<a href="{% url 'ky-result:ky-result' %}">
                   																			<i class="fa fa-angle-right"></i>계약자 현황</a>
                   															</li>
                   															<li>
-                  																	<a href="ky-remain.html">
+                  																	<a href="{% url 'ky-remain:ky-remain' %}">
                   																			<i class="fa fa-angle-right"></i>잔여세대 현황</a>
                   															</li>
                   													</ul>
@@ -237,15 +187,15 @@
                                             </a>
                                             <ul>
                                                 <li>
-                                                    <a href="tm-input.html">
+                                                    <a href="{% url 'tm-input:tm-input' %}">
                                                         <i class="fa fa-angle-right"></i>TM 입력</a>
                                                 </li>
                                                 <li>
-                                                    <a href="tm-result.html">
+                                                    <a href="{% url 'tm-result:tm-result' %}">
                                                         <i class="fa fa-angle-right"></i>TM 현황</a>
 												                        </li>
                                                 <li>
-                                                    <a href="tm-public.html">
+                                                    <a href="{% url 'tm-public:tm-public' %}">
                                                         <i class="fa fa-angle-right"></i>여론 분석
                                                         <span class="label  label-success">new</span>
                                                     </a>
@@ -259,11 +209,11 @@
                                             </a>
                                             <ul>
                                                 <li>
-                                                    <a href="ad-schedule.html">
+                                                    <a href="{% url 'ad-schedule:ad-schedule' %}">
                                                         <i class="fa fa-angle-right"></i>스케쥴 관리</a>
                                                 </li>
                                                 <li>
-                                                    <a href="ad-effect.html">
+                                                    <a href="{% url 'ad-effect:ad-effect' %}">
                                                         <i class="fa fa-angle-right"></i>효율성 분석</a>
                                                 </li>
                                             </ul>
@@ -275,13 +225,13 @@
                                             </a>
                                             <ul>
                                                 <li>
-                                                    <a href="info-online.html">
+                                                    <a href="{% url 'info-online:info-online' %}">
                                                         <i class="fa fa-angle-right"></i>온라인 현황</a>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
-                  													<a href="setting.html">
+                  													<a href="{% url 'setting:setting' %}">
                   															<i class="fa fa-gear"></i>
                   															<span>기본정보 입력</span>
                   													</a>

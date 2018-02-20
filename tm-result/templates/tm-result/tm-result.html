@@ -1,0 +1,657 @@
+<!doctype html>
+<html class="no-js " lang="ko">
+
+<head>
+<meta charset="utf-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>:: AnD - 분양관리시스템 ::</title>
+	<link rel="icon" type="image/ico" href="static/images/favicon.ico" />
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="static/js/vendor/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="static/css/vendor/animsition.min.css">
+	<link rel="stylesheet" href="static/js/vendor/morris/morris.css">
+	<link rel="stylesheet" href="static/js/vendor/rickshaw/rickshaw.min.css">
+	<link rel="stylesheet" href="static/css/main.css">
+</head>
+
+<body id="falcon" class="main_Wrapper">
+	<!--  Application Content -->
+	<div id="wrap" class="animsition">
+
+		<!-- HEADER Content  -->
+		 <div id="header">
+            <header class="clearfix">
+                <!-- Branding -->
+                <div class="branding">
+                    <a class="brand" href="{% url 'index' %}">
+                        <span>AnD</span>
+                    </a>
+                    <a role="button" tabindex="0" class="offcanvas-toggle visible-xs-inline">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+                <!-- Branding end -->
+
+                <!-- Left-side navigation -->
+                <ul class="nav-left pull-left list-unstyled list-inline">
+                    <li class="leftmenu-collapse">
+                        <a role="button" tabindex="0" class="collapse-leftmenu">
+                            <i class="fa fa-outdent"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- Left-side navigation end -->
+                <div class="search" id="main-search">
+                    <input type="text" class="form-control underline-input" placeholder="AnD 검색...">
+                </div>
+                <!-- Search end -->
+
+                <!-- Right-side navigation -->
+                <ul class="nav-right pull-right list-inline">
+                    <li class="dropdown nav-profile">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="static/images/profile-photo.jpg" alt="" class="0 size-30x30"> </a>
+                        <ul class="dropdown-menu pull-right" role="menu">
+                            <li>
+                                <div class="user-info">
+                                    <div class="user-name">박현석</div>
+                                    <div class="user-position online">과장</div>
+                                </div>
+                            </li>
+                            <li>
+                                <a role="button" tabindex="0">
+                                    <span class="label label-info pull-right">new</span>
+                                    <i class="fa fa-check"></i>Tasks</a>
+                            </li>
+                            <li>
+                                <a role="button" tabindex="0">
+                                    <i class="fa fa-cog"></i>Settings</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="{% url 'locked:locked' %}" role="button" tabindex="0">
+                                    <i class="fa fa-lock"></i>Lock</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'login:login' %}" role="button" tabindex="0">
+                                    <i class="fa fa-sign-out"></i>Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="toggle-right-leftmenu">
+                        <a role="button" tabindex="0">
+                            <i class="fa fa-align-left"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- Right-side navigation end -->
+            </header>
+        </div>
+		<!--/ HEADER Content  -->
+
+		<!--  CONTROLS Content -->
+		<div id="controls">
+			<!--SIDEBAR Content -->
+            <aside id="leftmenu">
+                <div id="leftmenu-wrap">
+                    <div class="panel-group slim-scroll" role="tablist">
+                        <div class="panel panel-default">
+                            <div id="leftmenuNav" class="panel-collapse collapse in" role="tabpanel">
+                                <div class="panel-body">
+                                    <!--  NAVIGATION Content -->
+                                    <ul id="navigation">
+                                        <li>
+                                            <a href="{% url 'index' %}">
+                                                <i class="fa fa-dashboard"></i>
+                                                <span>Home</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a role="button" tabindex="0">
+                                                <i class="fa fa-envelope"></i>
+                                                <span>Date Base 관리</span>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="{% url 'db-result:db-result' %}">
+                                                        <i class="fa fa-angle-right"></i>DB 현황
+                                                        <span class="label label-success">new</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'db-list:db-list' %}">
+                                                        <i class="fa fa-angle-right"></i>DB 리스트</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'db-guest:db-guest' %}">
+                                                        <i class="fa fa-angle-right"></i>개인별 추출</a>
+                                                </li>
+												                        <li>
+                                                    <a href="{% url 'db-edit:db-edit' %}">
+                                                        <i class="fa fa-angle-right"></i>설문지 편집</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a role="button" tabindex="0">
+                                                <i class="fa fa-list"></i>
+                                                <span>청약 관리</span>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="{% url 'cy-test:cy-test' %}">
+                                                        <i class="fa fa-angle-right"></i>부적격 검수</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'cy-result:cy-result' %}">
+                                                        <i class="fa fa-angle-right"></i>청약자 현황</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'cy-list:cy-list' %}">
+                                                        <i class="fa fa-angle-right"></i>청약자 리스트</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'cy-guest:cy-guest' %}">
+                                                        <i class="fa fa-angle-right"></i>개인별 추출
+                                                        <span class="badge br-10 badge-success">13</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'cy-outbound:cy-outbound' %}">
+                                                        <i class="fa fa-angle-right"></i>당첨자 아웃바운드</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a role="button" tabindex="0">
+                                                <i class="fa fa-leaf"></i>
+                                                <span>계약 관리</span>
+                                            </a>
+                  													<ul>
+                  															<li>
+                  																	<a href="{% url 'ky-input:ky-input' %}">
+                  																			<i class="fa fa-angle-right"></i>계약자 입력</a>
+                  															</li>
+                  															<li>
+                  																	<a href="{% url 'ky-result:ky-result' %}">
+                  																			<i class="fa fa-angle-right"></i>계약자 현황</a>
+                  															</li>
+                  															<li>
+                  																	<a href="{% url 'ky-remain:ky-remain' %}">
+                  																			<i class="fa fa-angle-right"></i>잔여세대 현황</a>
+                  															</li>
+                  													</ul>
+                                        </li>
+                                        <li>
+                                            <a role="button" tabindex="0">
+                                                <i class="fa fa-delicious"></i>
+                                                <span>TM 관리</span>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="{% url 'tm-input:tm-input' %}">
+                                                        <i class="fa fa-angle-right"></i>TM 입력</a>
+                                                </li>
+                                                <li class="active">
+                                                    <a href="{% url 'tm-result:tm-result' %}">
+                                                        <i class="fa fa-angle-right"></i>TM 현황</a>
+												                        </li>
+                                                <li>
+                                                    <a href="{% url 'tm-public:tm-public' %}">
+                                                        <i class="fa fa-angle-right"></i>여론 분석
+                                                        <span class="label  label-success">new</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a role="button" tabindex="0">
+                                                <i class="fa fa-table"></i>
+                                                <span>광고 관리</span>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="{% url 'ad-schedule:ad-schedule' %}">
+                                                        <i class="fa fa-angle-right"></i>스케쥴 관리</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'ad-effect:ad-effect' %}">
+                                                        <i class="fa fa-angle-right"></i>효율성 분석</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a role="button" tabindex="0">
+                                                <i class="fa fa-map-o"></i>
+                                                <span>실시간 정보</span>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="{% url 'info-online:info-online' %}">
+                                                        <i class="fa fa-angle-right"></i>온라인 현황</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                  													<a href="{% url 'setting:setting' %}">
+                  															<i class="fa fa-gear"></i>
+                  															<span>기본정보 입력</span>
+                  													</a>
+                  											</li>
+                                    </ul>
+                                    <!--/ NAVIGATION Content -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+			<!--/ SIDEBAR Content -->
+
+			<!--RIGHTBAR Content -->
+			<aside id="rightmenu">
+                <div role="tabpanel">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#todo" aria-controls="todo" role="tab" data-toggle="tab">Todo</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="todo">
+                            <div class="form-group">
+                                <input type="text" value="" placeholder="새 업무를 추가하세요..." class="form-control" />
+                                <span class="fa fa-plus"></span>
+                            </div>
+                            <h6>Today</h6>
+                            <ul class="todo-list">
+                                <li>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="optionsCheckboxes"> [14:00] 광고 000사 미팅 </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="optionsCheckboxes"> 직원 교육 스케쥴 완성</label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="optionsCheckboxes"> 청약 관련 서류 점검</label>
+                                    </div>
+                                </li>
+                            </ul>
+                            <h6>Tomorrow</h6>
+                            <ul class="todo-list">
+                                <li>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="optionsCheckboxes"> 1순위 청약일</label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="optionsCheckboxes"> 광고 효율성 주간 보고</label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="optionsCheckboxes"> 예상 계약률 산정</label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+			<!--/ RIGHTBAR Content -->
+		</div>
+		<!--/ CONTROLS Content -->
+
+		<!--  CONTENT -->
+		<section id="content">
+			<div class="page charts-page">
+				<!-- bradcome -->
+				<div class="b-b mb-10">
+					<div class="row">
+						<div class="col-sm-6 col-xs-12">
+							<h1 class="h3 m-0">TM 현황</h1>
+							<small class="text-muted">TM고객의 등급, 지역, 관심 요소 등을 확인해보세요</small>
+						</div>
+					</div>
+				</div>
+					<div class="col-md-12">
+						<section class="boxs">
+							<!-- boxs header -->
+							<div class="boxs-header">
+								<h3 class="custom-font hb-blue">
+									<strong>조건 검색</strong></h3>
+							</div>
+							<div class="boxs-widget">
+								<div class="row">
+									<div class="col-sm-2 col-xs-6">
+											<h3><strong>시작일</strong></h3>
+									</div>
+									<div class="col-sm-2 col-xs-6">
+										<select class="form-control inline">
+											<option value="0">년도</option>
+											<option value="18">2018년</option>
+											<option value="19">2019년</option>
+											<option value="20">2020년</option>
+											<option value="21">2021년</option>
+											<option value="23">2023년</option>
+											<option value="22">2022년</option>
+											<option value="24">2024년</option>
+											<option value="25">2025년</option>
+											<option value="26">2026년</option>
+											<option value="27">2027년</option>
+											<option value="28">2028년</option>
+											<option value="29">2029년</option>
+											<option value="30">2030년</option>
+										</select>
+									</div>
+									<div class="col-sm-2 col-xs-6">
+										<select class="form-control inline">
+											<option value="0">월</option>
+											<option value="1">1월</option>
+											<option value="2">2월</option>
+											<option value="3">3월</option>
+											<option value="4">4월</option>
+											<option value="5">5월</option>
+											<option value="6">6월</option>
+											<option value="7">7월</option>
+											<option value="8">8월</option>
+											<option value="9">9월</option>
+											<option value="10">10월</option>
+											<option value="11">11월</option>
+											<option value="12">12월</option>
+										</select>
+									</div>
+									<div class="col-sm-2 col-xs-6">
+										<select class="form-control inline">
+											<option value="0">일</option>
+											<option value="1">1일</option>
+											<option value="2">2일</option>
+											<option value="3">3일</option>
+											<option value="4">4일</option>
+											<option value="5">5일</option>
+											<option value="6">6일</option>
+											<option value="7">7일</option>
+											<option value="8">8일</option>
+											<option value="9">9일</option>
+											<option value="10">10일</option>
+											<option value="11">11일</option>
+											<option value="12">12일</option>
+											<option value="13">13일</option>
+											<option value="14">14일</option>
+											<option value="15">15일</option>
+											<option value="16">16일</option>
+											<option value="17">17일</option>
+											<option value="18">18일</option>
+											<option value="19">19일</option>
+											<option value="20">20일</option>
+											<option value="21">21일</option>
+											<option value="22">22일</option>
+											<option value="23">23일</option>
+											<option value="24">24일</option>
+											<option value="25">25일</option>
+											<option value="26">26일</option>
+											<option value="27">27일</option>
+											<option value="28">28일</option>
+											<option value="29">29일</option>
+											<option value="30">30일</option>
+											<option value="31">31일</option>
+										</select>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-2 col-xs-6">
+											<h3><strong>종료일</strong></h3>
+									</div>
+									<div class="col-sm-2 col-xs-6">
+										<select class="form-control inline">
+											<option value="0">년도</option>
+											<option value="18">2018년</option>
+											<option value="19">2019년</option>
+											<option value="20">2020년</option>
+											<option value="21">2021년</option>
+											<option value="23">2023년</option>
+											<option value="22">2022년</option>
+											<option value="24">2024년</option>
+											<option value="25">2025년</option>
+											<option value="26">2026년</option>
+											<option value="27">2027년</option>
+											<option value="28">2028년</option>
+											<option value="29">2029년</option>
+											<option value="30">2030년</option>
+										</select>
+									</div>
+									<div class="col-sm-2 col-xs-6">
+										<select class="form-control inline">
+											<option value="0">월</option>
+											<option value="1">1월</option>
+											<option value="2">2월</option>
+											<option value="3">3월</option>
+											<option value="4">4월</option>
+											<option value="5">5월</option>
+											<option value="6">6월</option>
+											<option value="7">7월</option>
+											<option value="8">8월</option>
+											<option value="9">9월</option>
+											<option value="10">10월</option>
+											<option value="11">11월</option>
+											<option value="12">12월</option>
+										</select>
+									</div>
+									<div class="col-sm-2 col-xs-6">
+										<select class="form-control inline">
+											<option value="0">일</option>
+											<option value="1">1일</option>
+											<option value="2">2일</option>
+											<option value="3">3일</option>
+											<option value="4">4일</option>
+											<option value="5">5일</option>
+											<option value="6">6일</option>
+											<option value="7">7일</option>
+											<option value="8">8일</option>
+											<option value="9">9일</option>
+											<option value="10">10일</option>
+											<option value="11">11일</option>
+											<option value="12">12일</option>
+											<option value="13">13일</option>
+											<option value="14">14일</option>
+											<option value="15">15일</option>
+											<option value="16">16일</option>
+											<option value="17">17일</option>
+											<option value="18">18일</option>
+											<option value="19">19일</option>
+											<option value="20">20일</option>
+											<option value="21">21일</option>
+											<option value="22">22일</option>
+											<option value="23">23일</option>
+											<option value="24">24일</option>
+											<option value="25">25일</option>
+											<option value="26">26일</option>
+											<option value="27">27일</option>
+											<option value="28">28일</option>
+											<option value="29">29일</option>
+											<option value="30">30일</option>
+											<option value="31">31일</option>
+										</select>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-2 col-xs-6">
+										<button class="btn btn-info btn-raised" type="button">검색</button>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<section class="boxs">
+							<div class="boxs-header">
+								<h3 class="custom-font">
+									<strong>기간별 </strong> 추이</h3>
+							</div>
+							<div class="boxs-body">
+								<div id="line-area-example" style="height: 250px;"></div>
+							</div>
+						</section>
+					</div>
+				</div>
+			 	<div class="row">
+					<div class="col-md-4 col-sm-12">
+						<section class="boxs">
+							<div class="boxs-header">
+								<h3 class="custom-font">
+									<strong>등급 </strong></h3>
+							</div>
+							<div class="boxs-body">
+								<div id="donut-example1" style="height: 250px;"></div>
+							</div>
+						</section>
+					</div>
+					<div class="col-md-4 col-sm-12">
+						<section class="boxs">
+							<div class="boxs-header">
+								<h3 class="custom-font">
+									<strong>항목2 </strong></h3>
+							</div>
+							<div class="boxs-body">
+								<div id="donut-example2" style="height: 250px;"></div>
+							</div>
+						</section>
+					</div>
+					<div class="col-md-4 col-sm-12">
+						<section class="boxs">
+							<div class="boxs-header">
+								<h3 class="custom-font">
+									<strong>항목3 </strong></h3>
+							</div>
+							<div class="boxs-body">
+								<div id="donut-example3" style="height: 250px;"></div>
+							</div>
+						</section>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-sm-12">
+						<section class="boxs">
+							<div class="boxs-header">
+								<h3 class="custom-font">
+									<strong>항목4 </strong></h3>
+							</div>
+							<div class="boxs-body">
+								<div id="donut-example4" style="height: 250px;"></div>
+							</div>
+						</section>
+					</div>
+					<div class="col-md-4 col-sm-12">
+						<section class="boxs">
+							<div class="boxs-header">
+								<h3 class="custom-font">
+									<strong>항목5 </strong></h3>
+							</div>
+							<div class="boxs-body">
+								<div id="donut-example5" style="height: 250px;"></div>
+							</div>
+						</section>
+					</div>
+					<div class="col-md-4 col-sm-12">
+						<section class="boxs">
+							<div class="boxs-header">
+								<h3 class="custom-font">
+									<strong>항목6 </strong></h3>
+							</div>
+							<div class="boxs-body">
+								<div id="donut-example6" style="height: 250px;"></div>
+							</div>
+						</section>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-sm-12">
+						<section class="boxs">
+							<div class="boxs-header">
+								<h3 class="custom-font">
+									<strong>항목7 </strong></h3>
+							</div>
+							<div class="boxs-body">
+								<div id="donut-example7" style="height: 250px;"></div>
+							</div>
+						</section>
+					</div>
+					<div class="col-md-4 col-sm-12">
+						<section class="boxs">
+							<div class="boxs-header">
+								<h3 class="custom-font">
+									<strong>항목8 </strong></h3>
+							</div>
+							<div class="boxs-body">
+								<div id="donut-example8" style="height: 250px;"></div>
+							</div>
+						</section>
+					</div>
+					<div class="col-md-4 col-sm-12">
+						<section class="boxs">
+							<div class="boxs-header">
+								<h3 class="custom-font">
+									<strong>항목9 </strong></h3>
+							</div>
+							<div class="boxs-body">
+								<div id="donut-example9" style="height: 250px;"></div>
+							</div>
+						</section>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-sm-12">
+						<section class="boxs">
+							<div class="boxs-header">
+								<h3 class="custom-font">
+									<strong>항목10 </strong></h3>
+							</div>
+							<div class="boxs-body">
+								<div id="donut-example10" style="height: 250px;"></div>
+							</div>
+						</section>
+					</div>
+			</div>
+	</div>
+</section>
+	<!--/ Application Content -->
+
+	<!-- Vendor JavaScripts  -->
+	<script src="static/bundles/libscripts.bundle.js"></script>
+	<script src="static/bundles/vendorscripts.bundle.js"></script>
+
+	<script src="static/js/vendor/sparkline/jquery.sparkline.min.js"></script>
+	<script src="static/bundles/flotscripts.bundle.js"></script>
+	<script src="static/js/vendor/gaugejs/gauge.min.js"></script>
+	<script src="static/js/vendor/raphael/raphael-min.js"></script>
+	<script src="static/js/vendor/d3/d3.v2.js"></script>
+	<script src="static/js/vendor/rickshaw/rickshaw.min.js"></script>
+	<script src="static/js/vendor/morris/morris.min.js"></script>
+	<script src="static/js/vendor/easypiechart/jquery.easypiechart.min.js"></script>
+	<script src="static/js/vendor/countTo/jquery.countTo.js"></script>
+	<!--/ vendor javascripts -->
+
+	<!--  Custom JavaScripts -->
+	<script src="static/bundles/mainscripts.bundle.js"></script> <!-- Custom Js -->
+	<script src="static/js/page/tm-chart.js"></script>
+	<!--/ custom javascripts -->
+</body>
+
+</html>
