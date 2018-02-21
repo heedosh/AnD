@@ -634,12 +634,10 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>18-02-05</td>
-                                                <td>
-                                                    <a href="javascript:;">박현석</a>
-                                                </td>
-                                                <td>신희도</td>
-                                                <td>23</td>
+                                              {% for post in posts %}
+                                                <td>{{ post.id }}</td>
+                                                <td>{{ post.name }}</td>
+                                              {% endfor %}
                                                 <td>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
