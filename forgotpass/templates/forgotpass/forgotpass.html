@@ -1,4 +1,5 @@
 <!doctype html>
+{% load staticfiles %}
 <html class="no-js" lang="ko">
 
 
@@ -6,12 +7,12 @@
 <head>
 <meta charset="utf-8" />
 <title>:: AnD - 분양관리시스템 ::</title>
-<link rel="icon" type="image/ico" href="static/images/favicon.ico" />
+<link rel="icon" type="image/ico" href="{% static 'images/favicon.ico' %}" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-<link rel="stylesheet" href="static/js/vendor/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'js/vendor/bootstrap/bootstrap.min.css' %}">
 <!-- CSS Files -->
-<link rel="stylesheet" href="static/css/vendor/animsition.min.css">
-<link href="static/css/main.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/vendor/animsition.min.css">
+<link href="{% static 'css/main.css' %}" rel="stylesheet">
 </head>
 
 <body id="falcon" class="authentication">
@@ -50,9 +51,8 @@
 	</div>
 </div>
 <!--  Vendor JavaScripts -->
-<script src="static/bundles/libscripts.bundle.js"></script>
-<script src="static/bundles/mainscripts.bundle.js"></script> <!-- Custom Js -->
+<script src="{% static 'bundles/libscripts.bundle.js' %}"></script>
+<script src="{% static 'bundles/mainscripts.bundle.js' %}"></script> <!-- Custom Js -->
 </body>
 
-<!-- Mirrored from thememakker.com/templates/falcon/html/forgotpass.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Jan 2018 15:45:35 GMT -->
 </html>

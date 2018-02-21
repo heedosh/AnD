@@ -1,19 +1,20 @@
 <!doctype html>
+{% load staticfiles %}
 <html class="no-js " lang="ko">
 
 <head>
 <meta charset="utf-8">
 
 <title>:: AnD - 분양관리시스템 ::</title>
-<link rel="icon" type="image/ico" href="static/images/favicon.ico" />
+<link rel="icon" type="image/ico" href="{% static 'images/favicon.ico' %}" />
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- vendor css files -->
-<link rel="stylesheet" href="static/js/vendor/bootstrap/bootstrap.min.css">
-<link rel="stylesheet" href="static/css/vendor/animsition.min.css">
-<link rel="stylesheet" href="static/js/vendor/morris/morris.css">
+<link rel="stylesheet" href="{% static 'js/vendor/bootstrap/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/vendor/animsition.min.css' %}">
+<link rel="stylesheet" href="{% static 'js/vendor/morris/morris.css' %}">
 <!-- project main css files -->
-<link rel="stylesheet" href="static/css/main.css">
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body id="falcon" class="main_Wrapper">
     <div id="wrap" class="animsition">
@@ -49,7 +50,7 @@
                   <ul class="nav-right pull-right list-inline">
                       <li class="dropdown nav-profile">
                           <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                              <img src="static/images/profile-photo.jpg" alt="" class="0 size-30x30"> </a>
+                              <img src="{% static 'images/profile-photo.jpg' %}" alt="" class="0 size-30x30"> </a>
                           <ul class="dropdown-menu pull-right" role="menu">
                               <li>
                                   <div class="user-info">
@@ -985,20 +986,20 @@
         </section>
     </div>
     <!-- Vendor JavaScripts -->
-    <script src="static/bundles/libscripts.bundle.js"></script>
-    <script src="static/bundles/vendorscripts.bundle.js"></script>
+    <script src="{% static 'bundles/libscripts.bundle.js' %}"></script>
+    <script src="{% static 'bundles/vendorscripts.bundle.js' %}"></script>
 
     <!--/ vendor javascripts -->
-    <script src="static/bundles/flotscripts.bundle.js"></script>
-    <script src="static/bundles/d3cripts.bundle.js"></script>
-    <script src="static/bundles/sparkline.bundle.js"></script>
-    <script src="static/bundles/raphael.bundle.js"></script>
-    <script src="static/bundles/morris.bundle.js"></script>
-    <script src="static/bundles/loadercripts.bundle.js"></script>
+    <script src="{% static 'bundles/flotscripts.bundle.js' %}"></script>
+    <script src="{% static 'bundles/d3cripts.bundle.js' %}"></script>
+    <script src="{% static 'bundles/sparkline.bundle.js' %}"></script>
+    <script src="{% static 'bundles/raphael.bundle.js' %}"></script>
+    <script src="{% static 'bundles/morris.bundle.js' %}"></script>
+    <script src="{% static 'bundles/loadercripts.bundle.js' %}"></script>
 
     <!-- page Js -->
-    <script src="static/bundles/mainscripts.bundle.js"></script>
-    <script src="static/js/page/index.js"></script>
+    <script src="{% static 'bundles/mainscripts.bundle.js' %}"></script>
+    <script src="{% static 'js/page/index.js' %}"></script>
 </body>
 
 </html>

@@ -1,4 +1,5 @@
 <!doctype html>
+{% load staticfiles %}
 <html class="no-js " lang="ko">
 
 <head>
@@ -6,15 +7,15 @@
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>:: AnD - 분양관리시스템 ::</title>
-	<link rel="icon" type="image/ico" href="static/images/favicon.ico" />
+	<link rel="icon" type="image/ico" href="{% static 'images/favicon.ico' %}" />
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="static/js/vendor/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="{% static 'js/vendor/bootstrap/bootstrap.min.css' %}">
 	<!-- vendor css files -->
-	<link rel="stylesheet" href="static/css/vendor/animsition.min.css">
-	<link rel="stylesheet" href="static/js/vendor/footable/css/footable.core.min.css">
+	<link rel="stylesheet" href="{% static 'css/vendor/animsition.min.css' %}">
+	<link rel="stylesheet" href="{% static 'js/vendor/footable/css/footable.core.min.css' %}">
 	<!-- project main css files -->
-	<link rel="stylesheet" href="static/css/main.css">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
 	<!--/ stylesheets -->
 </head>
 
@@ -55,7 +56,7 @@
                 <ul class="nav-right pull-right list-inline">
                     <li class="dropdown nav-profile">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="static/images/profile-photo.jpg" alt="" class="0 size-30x30"> </a>
+                            <img src="{% static 'images/profile-photo.jpg' %}" alt="" class="0 size-30x30"> </a>
                         <ul class="dropdown-menu pull-right" role="menu">
                             <li>
                                 <div class="user-info">
@@ -446,13 +447,13 @@
 	<!--/ Application Content -->
 
 	<!--  Vendor JavaScripts  -->
-	<script src="static/bundles/libscripts.bundle.js"></script>
-	<script src="static/bundles/vendorscripts.bundle.js"></script>
-	<script src="static/js/vendor/footable/footable.all.min.js"></script>
+	<script src="{% static 'bundles/libscripts.bundle.js' %}"></script>
+	<script src="{% static 'bundles/vendorscripts.bundle.js' %}"></script>
+	<script src="{% static 'js/vendor/footable/footable.all.min.js' %}"></script>
 	<!--/ vendor javascripts -->
 
 	<!--  Custom JavaScripts  -->
-	<script src="static/bundles/mainscripts.bundle.js"></script>	<!-- Custom Js -->
+	<script src="{% static 'bundles/mainscripts.bundle.js' %}"></script>	<!-- Custom Js -->
 
 	<!--  Page Specific Scripts  -->
 	<script >

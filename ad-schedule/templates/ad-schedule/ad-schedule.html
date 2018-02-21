@@ -1,4 +1,5 @@
 <!doctype html>
+{% load staticfiles %}
 <html class="no-js " lang="ko">
 
 <head>
@@ -6,16 +7,16 @@
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>:: AnD - 분양관리시스템 ::</title>
-	<link rel="icon" type="image/ico" href="static/images/favicon.ico" />
+	<link rel="icon" type="image/ico" href="{% static 'images/favicon.ico' %}" />
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="static/js/vendor/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="{% static 'js/vendor/bootstrap/bootstrap.min.css' %}">
 	<!-- vendor css files -->
-	<link rel="stylesheet" href="static/css/vendor/animsition.min.css">
-	<link rel="stylesheet" href="static/js/vendor/fullcalendar/fullcalendar.css">
+	<link rel="stylesheet" href="{% static 'css/vendor/animsition.min.css' %}">
+	<link rel="stylesheet" href="{% static 'js/vendor/fullcalendar/fullcalendar.css' %}">
 
 	<!-- project main css files -->
-	<link rel="stylesheet" href="static/css/main.css">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
 	<!--/ stylesheets -->
 </head>
 
@@ -55,7 +56,7 @@
                 <ul class="nav-right pull-right list-inline">
                     <li class="dropdown nav-profile">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="static/images/profile-photo.jpg" alt="" class="0 size-30x30"> </a>
+                            <img src="{% static 'images/profile-photo.jpg' %}" alt="" class="0 size-30x30"> </a>
                         <ul class="dropdown-menu pull-right" role="menu">
                             <li>
                                 <div class="user-info">
@@ -215,11 +216,11 @@
                                                 <span>광고 관리</span>
                                             </a>
                                             <ul>
-                                                <li>
+                                                <li class="active">
                                                     <a href="{% url 'ad-schedule:ad-schedule' %}">
                                                         <i class="fa fa-angle-right"></i>스케쥴 관리</a>
                                                 </li>
-                                                <li class="active">
+                                                <li>
                                                     <a href="{% url 'ad-effect:ad-effect' %}">
                                                         <i class="fa fa-angle-right"></i>효율성 분석</a>
                                                 </li>
@@ -443,14 +444,14 @@
 	</div>
 
 	<!-- Vendor JavaScripts  -->
-	<script src="static/bundles/libscripts.bundle.js"></script>
-	<script src="static/bundles/vendorscripts.bundle.js"></script>
-	<script src="static/bundles/fullcalendarscripts.bundle.js"></script>
+	<script src="{% static 'bundles/libscripts.bundle.js' %}"></script>
+	<script src="{% static 'bundles/vendorscripts.bundle.js' %}"></script>
+	<script src="{% static 'bundles/fullcalendarscripts.bundle.js' %}"></script>
 	<!--/ vendor javascripts -->
 
 	<!-- Custom JavaScripts  -->
-	<script src="static/bundles/mainscripts.bundle.js"></script>
-	<script src="static/js/page/calendar.js"></script>
+	<script src="{% static 'bundles/mainscripts.bundle.js' %}"></script>
+	<script src="{% static 'js/page/calendar.js' %}"></script>
 </body>
 
 </html>
