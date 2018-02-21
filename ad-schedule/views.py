@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
 def ad_schedule(request):
-    return render(request, 'ad-schdule/ad-schedule.html')
+    return render(request, 'ad-schedule/ad-schedule.html')
 
 # Create your views here.
